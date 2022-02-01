@@ -1,17 +1,19 @@
-import bookmarkReducer from "./bookmarks/bookmarksSlice";
-import postLikesReducer from "./postLikes/postLikes";
-import commentLikesReducer from "./commentLikes/commentLikes";
-import darkmodeReducer from "./darkmode/darkmode";
-import pagesReducer from "./pages/pages";
-import mediaRunningReducer from "./mediaRunning/mediaRunning";
+import bookmarkReducer from './bookmarks/bookmarksSlice';
+import postLikesReducer from './postLikes/postLikes';
+import commentLikesReducer from './commentLikes/commentLikes';
+import darkmodeReducer from './darkmode/darkmode';
+import pagesReducer from './pages/pages';
+import mediaRunningReducer from './mediaRunning/mediaRunning';
+import listingReducer from './listings/listing.reducer';
 
 const rootReducers = {
-  bookmark: bookmarkReducer,
-  postLike: postLikesReducer,
-  darkmode: darkmodeReducer,
-  commentLikes: commentLikesReducer,
-  pages: pagesReducer,
-  mediaRunning: mediaRunningReducer,
+    bookmark: bookmarkReducer,
+    postLike: postLikesReducer,
+    darkmode: darkmodeReducer,
+    commentLikes: commentLikesReducer,
+    pages: pagesReducer,
+    mediaRunning: mediaRunningReducer,
+    listing: listingReducer,
 };
 
 export default rootReducers;
