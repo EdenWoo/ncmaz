@@ -11,6 +11,7 @@ export const searchRepositories = (term: string) => {
 
     try {
       const { data } = await axios.get(
+        // 'https://app.apidae.co.nz/api/v1/listing?embedded=pictures,reviews,category,contacts&token=1qazxsw2&size=100',
         'https://registry.npmjs.org/-/v1/search',
         {
           params: {
