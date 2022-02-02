@@ -7,7 +7,7 @@ const initialState: ListingState = {
 };
 
 const listingReducer = (state = initialState, action: any) => {
-    if (action.type === 'FETCH_LISTINGS') {
+    if (action.type === 'FETCH_LISTINGS_SUCCESS') {
         return action.payload
     }
 
