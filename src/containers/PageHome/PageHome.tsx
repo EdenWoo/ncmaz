@@ -22,8 +22,8 @@ import SectionMagazine7 from './SectionMagazine7';
 import SectionMagazine8 from './SectionMagazine8';
 import SectionMagazine9 from './SectionMagazine9';
 import BgGlassmorphism from 'components/BgGlassmorphism/BgGlassmorphism';
-import {connect, useDispatch} from 'react-redux';
 import {useActions} from '../../hooks/useActions';
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
 //
 const POSTS: PostDataType[] = DEMO_POSTS;
@@ -34,8 +34,10 @@ const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 //
 
 const PageHome: React.FC = () => {
-    const { getListing } = useActions();
-
+    const {getListing} = useActions();
+    const { data, error, loading } = useTypedSelector(
+        (state) => state.listings
+    );
     useEffect(() => {
         console.log('Component mounted');
 
@@ -83,7 +85,7 @@ const PageHome: React.FC = () => {
                         categoryCardType="card4"
                     />
 
-                    {/* === SECTION 6 === */}
+                    {/* === SECTION 6 listing=== */}
                     <div className="relative py-16">
                         <BackgroundSection/>
                         <SectionSliderPosts
@@ -91,7 +93,7 @@ const PageHome: React.FC = () => {
                             heading="Explore latest audio articles"
                             subHeading="Click on the icon to enjoy the music or podcast 🎧"
                             sliderStype="style2"
-                            posts={DEMO_POSTS_AUDIO.filter((_, i) => i > 3 && i < 10)}
+                            posts={data}
                         />
                     </div>
 
