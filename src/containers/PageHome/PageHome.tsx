@@ -24,6 +24,7 @@ import SectionMagazine9 from './SectionMagazine9';
 import BgGlassmorphism from 'components/BgGlassmorphism/BgGlassmorphism';
 import {useActions} from '../../hooks/useActions';
 import { useTypedSelector } from 'hooks/useTypedSelector';
+import Listings from './Listings';
 
 //
 const POSTS: PostDataType[] = DEMO_POSTS;
@@ -89,6 +90,19 @@ const PageHome: React.FC = () => {
                     <div className="relative py-16">
                         <BackgroundSection/>
                         <SectionSliderPosts
+                            postCardName="card9"
+                            heading="Explore latest audio articles"
+                            subHeading="Click on the icon to enjoy the music or podcast 🎧"
+                            sliderStype="style2"
+                            posts={DEMO_POSTS_AUDIO.filter((_, i) => i > 3 && i < 10)}
+                            listings={data}
+                        />
+                    </div>
+
+                    {/* === Listing=== */}
+                    <div className="relative py-16">
+                        <BackgroundSection/>
+                        <Listings
                             postCardName="card9"
                             heading="Explore latest audio articles"
                             subHeading="Click on the icon to enjoy the music or podcast 🎧"
