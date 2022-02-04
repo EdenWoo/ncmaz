@@ -85,7 +85,7 @@ const PageHome: React.FC = () => {
                         categoryCardType="card4"
                     />
 
-                    {/* === SECTION 6 listing=== */}
+                    {/* === SECTION 6 === */}
                     <div className="relative py-16">
                         <BackgroundSection/>
                         <SectionSliderPosts
@@ -93,7 +93,8 @@ const PageHome: React.FC = () => {
                             heading="Explore latest audio articles"
                             subHeading="Click on the icon to enjoy the music or podcast 🎧"
                             sliderStype="style2"
-                            posts={data}
+                            posts={DEMO_POSTS_AUDIO.filter((_, i) => i > 3 && i < 10)}
+                            listings={data}
                         />
                     </div>
 

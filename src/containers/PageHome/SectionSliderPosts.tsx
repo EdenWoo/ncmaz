@@ -19,6 +19,7 @@ export interface SectionSliderPostsProps {
   postCardName?: "card4" | "card7" | "card9" | "card10" | "card10V2" | "card11";
   sliderStype?: "style1" | "style2";
   perView?: 2 | 3 | 4;
+  listings?: any;
 }
 
 const SectionSliderPosts: FC<SectionSliderPostsProps> = ({
@@ -29,6 +30,7 @@ const SectionSliderPosts: FC<SectionSliderPostsProps> = ({
   postCardName = "card4",
   sliderStype = "style1",
   perView = 4,
+  listings ,
 }) => {
   const UNIQUE_CLASS = ncNanoId("sliderPosts_");
 
