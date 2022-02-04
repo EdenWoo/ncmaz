@@ -1,20 +1,20 @@
 import { ActionType } from '../action-types';
 
-interface SearchRepositoriesAction {
-  type: ActionType.SEARCH_REPOSITORIES;
+interface GetListingAction {
+  type: ActionType.GET_LISTING;
 }
 
-interface SearchRepositoriesSuccessAction {
-  type: ActionType.SEARCH_REPOSITORIES_SUCCESS;
+interface GetListingSuccessAction {
+  type: ActionType.GET_LISTING_SUCCESS;
   payload: string[];
 }
 
-interface SearchRepositoriesErrorAction {
-  type: ActionType.SEARCH_REPOSITORIES_ERROR;
+interface GetListingErrorAction {
+  type: ActionType.GET_LISTING_ERROR;
   payload: string;
 }
 
 export type Action =
-  | SearchRepositoriesAction
-  | SearchRepositoriesSuccessAction
-  | SearchRepositoriesErrorAction;
+  | GetListingAction
+  | GetListingSuccessAction
+  | GetListingErrorAction;

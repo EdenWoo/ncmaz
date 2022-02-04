@@ -18,11 +18,11 @@ const reducer = (
   action: Action
 ): RepositoriesState => {
   switch (action.type) {
-    case ActionType.SEARCH_REPOSITORIES:
+    case ActionType.GET_LISTING:
       return { loading: true, error: null, data: [] };
-    case ActionType.SEARCH_REPOSITORIES_SUCCESS:
+    case ActionType.GET_LISTING_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case ActionType.SEARCH_REPOSITORIES_ERROR:
+    case ActionType.GET_LISTING_ERROR:
       return { loading: false, error: action.payload, data: [] };
     default:
       return state;

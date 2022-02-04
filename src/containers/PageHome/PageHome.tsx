@@ -22,7 +22,6 @@ import SectionMagazine7 from './SectionMagazine7';
 import SectionMagazine8 from './SectionMagazine8';
 import SectionMagazine9 from './SectionMagazine9';
 import BgGlassmorphism from 'components/BgGlassmorphism/BgGlassmorphism';
-import {fetchListings} from '../../app/listings/listing.actions';
 import {connect, useDispatch} from 'react-redux';
 import {useActions} from '../../hooks/useActions';
 
@@ -35,14 +34,12 @@ const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 //
 
 const PageHome: React.FC = () => {
-    const dispatch = useDispatch();
-    const { searchRepositories } = useActions();
+    const { getListing } = useActions();
 
     useEffect(() => {
         console.log('Component mounted');
 
-        // dispatch(fetchListings());
-        searchRepositories('npm')
+        getListing()
         return () => {
             console.log('Component will be unmount')
         }
