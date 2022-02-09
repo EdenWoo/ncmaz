@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import SectionLatestPosts from './SectionLatestPosts';
 import SectionSliderPosts from './SectionSliderPosts';
 import SectionMagazine1 from './SectionMagazine1';
@@ -23,8 +23,9 @@ import SectionMagazine8 from './SectionMagazine8';
 import SectionMagazine9 from './SectionMagazine9';
 import BgGlassmorphism from 'components/BgGlassmorphism/BgGlassmorphism';
 import {useActions} from '../../hooks/useActions';
-import { useTypedSelector } from 'hooks/useTypedSelector';
+import {useTypedSelector} from 'hooks/useTypedSelector';
 import Listings from './Listings';
+import {useMount, useThrottleFn} from 'ahooks';
 
 //
 const POSTS: PostDataType[] = DEMO_POSTS;
@@ -36,17 +37,15 @@ const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 
 const PageHome: React.FC = () => {
     const {getListing} = useActions();
-    const { data, error, loading } = useTypedSelector(
+    const {data, error, loading} = useTypedSelector(
         (state) => state.listings
     );
-    useEffect(() => {
-        console.log('Component mounted');
 
-        getListing()
-        return () => {
-            console.log('Component will be unmount')
-        }
-    }, [])
+    const {run: getListFn} = useThrottleFn(getListing)
+    useMount(() => {
+        console.log('getListFn')
+        getListFn()
+    })
 
     return (
         <div className="nc-PageHome relative">
